@@ -1,0 +1,2 @@
+Position,Domain,DomainType,IsCompetitor,IsAlly,IsTaboo,TitleScaremongering,DescScaremongering,AnyScaremongering,Title
+1,example.com,commercial,True,False,False,False,False,False,Sample result 1

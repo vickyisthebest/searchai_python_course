@@ -1,7 +1,7 @@
 {
-  "competitors": ["semrush.com", "ahrefs.com"],
-  "allies": [],
-  "taboo": [],
+  "competitors": ["example.com"],
+  "allies": ["ahrefs.org"],
+  "taboo": ["semrush.com"],
   "regions": ["US"],
   "languages": ["en"]
 }
