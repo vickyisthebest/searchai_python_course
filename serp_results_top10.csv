@@ -1,0 +1,6 @@
+Position,Domain,Title,DomainType,CredibilityScore
+1,example.com,Sample result 1,commercial,3
+2,govsite.gov,Government result,government,5
+3,reddit.com,Reddit thread,community_forum,2
+5,brand.com,Brand page,commercial,3
+7,ngo.org,NGO result,ngo_org,4
