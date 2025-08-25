@@ -1,5 +1,5 @@
 # lesson4_markdown_report.py
-# Adds flagged_rows.csv (competitors/allies/taboos/scaremongering) alongside the Markdown one-pager.
+# Adds flagged_rows.csv (competitors/allies/taboos/scaremongering) and prints flag counts to terminal.
 
 import os
 import json
@@ -181,7 +181,6 @@ lines.append("")
 
 with open(OUTPUT_MD, "w", encoding="utf-8") as f:
     f.write("\n".join(lines))
-
 print(f"Wrote Markdown summary → {OUTPUT_MD}")
 
 # --- Flagged rows CSV (competitor/ally/taboo/scaremongering only)
@@ -194,11 +193,9 @@ for c in ["Keyword", "Position", "Domain", "URL", "DomainType", "IsCompetitor", 
           "TitleScaremongering", "DescScaremongering", "AnyScaremongering"]:
     if c in flagged.columns:
         keep_cols.append(c)
-# Keep a title/description column if available
 if title_col and title_col not in keep_cols: keep_cols.append(title_col)
 if desc_col and desc_col not in keep_cols: keep_cols.append(desc_col)
 
-# If nothing flagged, still create an empty CSV with headers
 if flagged.empty:
     pd.DataFrame(columns=keep_cols if keep_cols else ["Domain"]).to_csv(OUTPUT_FLAGGED, index=False)
     print(f"No flagged rows. Wrote empty template → {OUTPUT_FLAGGED}")
@@ -207,3 +204,10 @@ else:
     flagged.sort_values(by=[c for c in ["Keyword", "Position"] if c in flagged.columns], inplace=True)
     flagged.to_csv(OUTPUT_FLAGGED, index=False)
     print(f"Wrote flagged rows → {OUTPUT_FLAGGED} (rows: {len(flagged)})")
+
+# --- Terminal summary (new)
+print("\nSummary:")
+print(f"- Competitor hits: {len(competitor_hits)}")
+print(f"- Ally hits:       {len(ally_hits)}")
+print(f"- Taboo hits:      {len(taboo_hits)}")
+print(f"- Scaremongering:  {len(scare_hits)}")
