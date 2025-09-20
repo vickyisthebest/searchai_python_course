@@ -4,3 +4,12 @@ __pycache__/
 .DS_Store
 reports/
 .env
+# Python virtual environment
+.venv/
+
+# Environment variables (API keys etc.)
+.env
+
+# Python cache
+__pycache__/
+*.pyc
